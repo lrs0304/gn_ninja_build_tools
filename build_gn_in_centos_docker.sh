@@ -19,9 +19,8 @@ yum -y install scl-utils
 yum -y install centos-release-scl
 yum -y install devtoolset-11-gcc devtoolset-11-gcc-c++ devtoolset-11-binutils
 
-echo "replace clang to cxx"
-sed -i 's#or platform.is_mingw():#or platform.is_mingw() or platform.is_linux():#g' build/gen.py
-git diff
+echo "use system environment to replace clang with g++"
+export CXX=g++
 
 echo "start build in ${script_path}"
 chmod +x ${script_path}/build_gn.sh
