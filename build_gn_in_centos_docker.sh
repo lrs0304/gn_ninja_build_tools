@@ -7,10 +7,11 @@ cd $(dirname "$0")
 script_path=`pwd`
 echo "curren dir = ${script_path}" 
 
-echo "clone gn"
+echo "clone gn from github"
+echo "commit id is from skia/bin; use command: gn --version"
 git clone https://github.com/lrs0304/gn.git
 cd gn
-git checkout 2023.03
+git checkout 9e993e3d
 
 echo "install ninja and gcc 11"
 yum -y install ninja-build
