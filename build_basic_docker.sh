@@ -11,8 +11,8 @@ yum -y install python3 python3-devel
 
 # install gcc11
 wget -c https://github.com/gcc-mirror/gcc/archive/refs/tags/releases/gcc-11.2.0.zip
-unzip gcc-11.2.0.zip
-cd gcc-11.2.0
+unzip gcc-11.2.0.zip > /dev/null
+cd gcc-releases-gcc-11.2.0
 
 # 下载依赖包
 ./contrib/download_prerequisites
@@ -47,7 +47,7 @@ rm -r gcc-11.2.0/
 
 # 编译新版本git
 wget https://github.com/git/git/archive/refs/tags/v2.38.4.zip
-unzip v2.38.4.zip
+unzip v2.38.4.zip > /dev/null
 cd git-2.38.4/
 
 yum -y install curl-devel expat-devel openssl-devel
