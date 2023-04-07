@@ -25,8 +25,8 @@ cd build/
 ../configure --prefix=/usr/local/gcc-11.2.0 --enable-bootstrap --enable-checking=release --enable-languages=c,c++ --disable-multilib
 
 # 进行编译，只能进程数能够加速
-make -j 8
-# 安装，大约15分钟左右
+make -j 16
+# 安装，大约30分钟左右
 make install
 
 # 配置为默认 gcc
@@ -44,8 +44,8 @@ gcc -v
 
 #清理docker的内容
 cd ../..
-rm gcc-11.2.0.tar.gz
-rm -r gcc-11.2.0/
+rm gcc-11.2.0.zip
+rm -r gcc-releases-gcc-11.2.0/
 
 
 # 编译新版本git

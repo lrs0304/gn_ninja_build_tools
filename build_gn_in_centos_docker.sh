@@ -16,6 +16,7 @@ gcc --version
 gcc --version | grep -q "gcc (.*[[:space:]])\?10\."
 if [ $? -eq 0 ]; then
 	bash ${script_path}/build_gn.sh
+	exit 0
 else
 	echo "current GCC version is less than 10"
 fi
