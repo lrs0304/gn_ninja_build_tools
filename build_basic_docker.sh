@@ -61,6 +61,7 @@ echo -e "\nexport PATH=/usr/local/git/bin:$PATH\n" >> /root/.bashrc
 # 立即执行，刷新环境变量
 source /root/.bashrc
 git --version
+ln -sf `which git` /bin/git
 
 # 清理docker里的内容
 rm v2.38.4.zip
