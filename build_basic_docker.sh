@@ -25,14 +25,17 @@ cd build/
 ../configure --prefix=/usr/local/gcc-11.2.0 --enable-bootstrap --enable-checking=release --enable-languages=c,c++ --disable-multilib
 
 # 进行编译，只能进程数能够加速
-# make -j 8
-# 安装，大约3-5分钟左右
+make -j 8
+# 安装，大约15分钟左右
 make install
 
 # 配置为默认 gcc
 echo -e '\nexport PATH=/usr/local/gcc-11.2.0/bin:$PATH\n' >> /etc/profile.d/gcc.sh && source /etc/profile.d/gcc.sh
 ln -sv /usr/local/gcc-11.2.0/include/ /usr/include/gcc
 ln -sf `which gcc` /bin/cc
+ln -sf `which gcc` /bin/gcc
+ln -sf `which g++` /bin/g++
+ln -sf `which c++` /bin/c++
 
 # 配置生效 & 验证
 ldconfig -v
