@@ -11,9 +11,9 @@ chmod +x ${script_path}/build_gn.sh
 echo "install ninja"
 yum -y install ninja-build
 
-echo "test gcc whether large than 10 or install gcc11"
+echo "test gcc 11 or install gcc11"
 gcc --version
-gcc --version | grep -q "gcc (.*[[:space:]])\?10\."
+gcc --version | grep -q "gcc (.*[[:space:]])\?11\."
 if [ $? -eq 0 ]; then
 	bash ${script_path}/build_gn.sh
 	exit 0
