@@ -1,0 +1,22 @@
+FROM mirrors.tencent.com/tlinux/tlinux2.4-aarch64:latest
+
+# MAINTAINER
+
+# install git
+RUN wget https://raw.githubusercontent.com/lrs0304/gn_ninja_build_tools/master/build_basic_docker.sh
+RUN bash build_basic_docker.sh
+
+# config pip
+RUN echo -e "[global]\nindex-url = https://mirrors.tencent.com/tencent_pypi/simple" > /etc/pip.conf
+
+# upgrade pip
+RUN pip3 install -U pip wheel
+
+# install docker-cli
+# RUN yum -y install docker-ce-cli
+
+# install qci_worker
+RUN pip3 install -U qci_worker -i https://mirrors.tencent.com/tencent_pypi/simple/
+
+# ENV
+ENV PATH=/usr/local/git/bin:/usr/local/gcc-11.2.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
