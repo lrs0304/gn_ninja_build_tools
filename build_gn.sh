@@ -5,8 +5,12 @@ cd $(dirname "$0")
 pwd
 
 echo "clone gn from github"
-echo "commit id is from skia/bin; use command: gn --version"
 git clone https://github.com/lrs0304/gn.git
+if [ $? -ne 0 ]; then
+	exit -1
+fi
+
+echo "checkout to target commit id, commit id is from skia/bin; use command: gn --version"
 cd gn
 git checkout 9e993e3d
 
