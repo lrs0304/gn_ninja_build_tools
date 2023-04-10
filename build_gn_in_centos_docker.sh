@@ -22,13 +22,14 @@ else
 fi
 
 echo "try install gcc-toolset-11"
+yum -y install scl-utils
 yum -y install gcc-toolset-11
 if [[ "$?" -eq "0" ]];then
-	yum -y install centos-release-scl
+    echo "use gcc-toolset-11"
 	scl enable gcc-toolset-11 ${script_path}/build_gn.sh
 else
-	echo "support centos-release-scl"
-	yum -y install scl-utils
+	echo "support devtoolset-11-gcc"
+	yum -y install centos-release-scl
 	yum -y install devtoolset-11-gcc devtoolset-11-gcc-c++ devtoolset-11-binutils
 	scl enable devtoolset-11 ${script_path}/build_gn.sh
 fi
